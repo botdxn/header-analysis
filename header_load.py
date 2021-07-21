@@ -1,4 +1,4 @@
-class Message:
+class HeaderAnalysis:
     def __init__(self, path, debug):
         self.path = path
         self.debug = debug
@@ -28,5 +28,5 @@ class Message:
 
 
 #test
-test_file = Message('pliki_naglowkow/test.txt', debug=True)
+test_file = HeaderAnalysis('pliki_naglowkow/test.txt', debug=True)
 test_file.find_headers()
