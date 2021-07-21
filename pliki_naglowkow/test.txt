@@ -1,0 +1,1598 @@
+Delivered-To: dixone23@gmail.com
+Received: by 2002:a05:6918:9045:b029:31:c694:5705 with SMTP id g5csp6660015ysf;
+        Wed, 21 Jul 2021 10:51:58 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxGXx5LxQoptp52sEFZeu4x92e27URperlVEOYnviXU/p3/zn4WRYcJ6xAkxM7hECeIdQm8
+X-Received: by 2002:ad4:5b86:: with SMTP id 6mr37079081qvp.17.1626889918338;
+        Wed, 21 Jul 2021 10:51:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626889918; cv=none;
+        d=google.com; s=arc-20160816;
+        b=kzbAh/od/Y3kO1mVVr7xrTl2hOjQpEL1lRjnTOnqunfMlpyUuYgjt5ZurdBOe18FPb
+         cwjXPyIZCCu7vcwDOkMhEZp1tBqBRq8T00zP5uTaX21CcKx22hue5Eard3yZp8lNDeYG
+         NbIdd31tu8yFwkiKxXfkmvMfOHuzzvoXh05IzgmJWHYiitUHtF7PFo9sO/b3T/y1bR1k
+         edqNPI0WGIwSOHGLe9i66bPy9CuAv/WK4Bb+RGhqtdIsTSWgLK1kvLpcNBhFf/ZeplPN
+         zzBld6uRi89LyGoEKkv2TOT3Us6i/MI2Sc/9d73f3Ytm0729+TYxxUdzavTLB4AVuhzp
+         4L0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:precedence:mime-version:subject:message-id:to:reply-to
+         :from:date:list-unsubscribe:dkim-signature:dkim-signature;
+        bh=wVBpGvQ+fAcuN/MrbQhLGRvFQ52sLlAIJF55FxdGHpM=;
+        b=ikyRu9tIcoG1fXmfp4mXkGDFgr2NlPRbzvAYFAeWv+l/vOfhQOplFS+jfh+Hpmvl6k
+         pME49X4OBhSDjoqFcnUGzQEehp3LAwY5If/2/lhuueLemLZg/8xZhHmd7dZImi2BaJN0
+         JPzpfe1rQhhsJDtnLmKfotNgyjQmcBw834nK5YhCWctqNtaiaiRPdDONt7z9At26FdPK
+         ZZCUkywXutOgeASKZv2UFeg2mFoAEcZV6ETzVaCBsnIKIoUaHfq8GFxRqkiFfNT/1mkO
+         jaEquNHgvGRF4FirW+LCiNhC+jEB94Nwbd7Z+CxXeAO3qybP17hqceMajVrZ1n9lP/on
+         g+ug==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@bf06x.hubspotemail.net header.s=hs1 header.b=UAyLlDQb;
+       dkim=pass header.i=@netlify.com header.s=hs1 header.b=NIQzTFua;
+       spf=pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) smtp.mailfrom="1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=netlify.com
+Return-Path: <1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net>
+Received: from bid46p4.bf06x.hubspotemail.net (bid46p4.bf06x.hubspotemail.net. [158.247.18.186])
+        by mx.google.com with ESMTPS id a18si20823698qko.219.2021.07.21.10.51.58
+        for <dixone23@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 21 Jul 2021 10:51:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) client-ip=158.247.18.186;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@bf06x.hubspotemail.net header.s=hs1 header.b=UAyLlDQb;
+       dkim=pass header.i=@netlify.com header.s=hs1 header.b=NIQzTFua;
+       spf=pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) smtp.mailfrom="1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=netlify.com
+Received: by 172.16.47.42 with SMTP id ayy69zrozcsinlkolt500ol4kb82z67gh154f5g;
+        Wed, 21 Jul 2021 17:51:57 GMT
+DKIM-Signature: v=1; s=hs1; d=bf06x.hubspotemail.net;
+         i=@bf06x.hubspotemail.net;
+         h=sender:from:reply-to:to:subject:mime-version:content-type:list-unsubscribe:form-sub:feedback-id;
+         a=rsa-sha256; c=relaxed/relaxed;
+         bh=wVBpGvQ+fAcuN/MrbQhLGRvFQ52sLlAIJF55FxdGHpM=;
+         b=UAyLlDQbX3BUQYfflLH0BOc3XumMoCDrmIF7Kpd3uyxaSKch3L2sZSAWq1Q5/b
+         FVoqPFmWmAAqmJjOAlAgJ5ch25W4Ynf38fp+kG6YUzXhU8LzTfPflLmGESSCyFu
+         W6onUlukTC59FXwVfUQOisl53kCiHYcOr0cPRYK9D5j4yIAT+1JmfS8q+et/CSI
+         kgwqGTTKq/osfUtHsRfWYvNHZAedBSYeyAcI6tOq7MrXzNhMy2lB3Z/HbcLDhW7
+         qmvyChdZMtJfid59bxyZOwGxgbNmWR4oBy2VHloLLoU4GmAM+GjufVxpp3k8vOT
+         j15LgUf9VJcwEQJmV/ePeH3BwhlA==; q=dns/txt; t=1626889917;
+DKIM-Signature: v=1; s=hs1; d=netlify.com; i=@netlify.com;
+         h=sender:from:reply-to:to:subject:mime-version:content-type:list-unsubscribe:form-sub:feedback-id;
+         a=rsa-sha256; c=relaxed/relaxed;
+         bh=wVBpGvQ+fAcuN/MrbQhLGRvFQ52sLlAIJF55FxdGHpM=;
+         b=NIQzTFuaRPcGadnuvSxpLDQJ/QKruhFGjMTGCEs4p/ByBAOu3P/JWb6BzeRBav
+         DZUwkyHHTyGoN1puWEUk3yO6UIZq9Vo55161uxpDWqxLTWEwSPjbuKjjHfJ64gV
+         AfKJ8n3PvOFFh6Ul7IeTX/c5BTdMUUkMNIY1qox/oricOjyForTAMSQ4662xvGR
+         Ls3Y+QkWOiPHS9yhPnNwpFxVl5Xbbxn77xkINKhIlFyBBV82VJsP3PFArCqfFRp
+         NkM0aR1SZgYX8tr+zs9itzx1wKyVI3zcQ2WkQX4isSso+F7X2+mj2FDXXKOZUuo
+         7vr72Fv8GKVN0relkwvD6/VU3b8w==; q=dns/txt; t=1626889917;
+Return-Path: <1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net>
+X-HS-Cid: 1axe8h1k3lc9oe2aq8twj3lsc9is7rtn6554f6
+List-Unsubscribe: <mailto:1axcx115vdxesvtitzcgmi7y8iq38f6vrme5za-dixone23=gmail.com@bf06x.hubspotemail.net?subject=unsubscribe>
+Date: Wed, 21 Jul 2021 10:51:57 -0700
+From: Netlify Team <no-reply@netlify.com>
+Reply-To: no-reply@netlify.com
+To: dixone23@gmail.com
+Message-ID: <1626887685683.c9647ac4-3e02-468c-bd3a-33013ce6c79f@bf06x.hubspotemail.net>
+Subject: Browserstack integration, Monorepo support, Astro, Supabase, and more - Netlify July Newsletter
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_2853414_1817813347.1626889916430"
+Precedence: bulk
+X-Report-Abuse-To: abuse@hubspot.com (see https://www.hubspot.com/abuse-complaints)
+Feedback-ID: aeeqkaq:aicm2tys:aipuz:HubSpot
+
+------=_Part_2853414_1817813347.1626889916430
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi there!
+
+We celebrated the Netlify partner ecosystem at a partner update event this =
+week, showcasing a customer story about UW-Health and highlighting new ente=
+rprise technology partners in the Netlify Technology Partners Showcase (htt=
+ps://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJ=
+DsW7lCgRZ57KLY4f1KTlgd03 ) , DataStax, Fauna, Nimbella, and StepZen. Also, =
+check out the new referral program for all Netlify agency partners to help =
+you get the most of your investment in Netlify.
+
+Learn More: https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5N=
+drS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgd13
+
+
+
+Collaborative Deploy Previews and BrowserStack =F0=9F=93=B1=F0=9F=92=BB
+
+Take advantage of a special offer from BrowserStack. For Netlify users, Bro=
+wserStack is offering a free trial with 60 minutes of testing=E2=80=94that'=
+s twice what's included in a standard free trial of BrowserStack.
+
+Learn more: https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5N=
+drS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgd23
+
+
+
+More product news
+
+- Monorepos on Netlify: How docs processes led to developer experience impr=
+ovements (https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5Ndr=
+S6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgd33 )
+- Managing environment variables from your terminal with Netlify CLI (https=
+://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDs=
+W7lCgRZ57KLY4f1KTlgd43 )
+- How to roll back a deploy in 2 seconds on Netlify (https://communications=
+.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KT=
+lgd53 )
+- Netlify Build Plugin of the Week: Ghost Inspector (https://communications=
+.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KT=
+lgd63 )
+- June Changelog: What's New at Netlify (https://communications.netlify.com=
+/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgd73 )
+- The Agency Partner's Guide to Managing Client Projects with Netlify (http=
+s://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJD=
+sW7lCgRZ57KLY4f1KTlgd83 )
+
+
+
+Last call for the 2021 Jamstack Community Survey =F0=9F=96=8A=EF=B8=8F
+
+Take the 2021 Jamstack community survey (https://communications.netlify.com=
+/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgd93 )  to =
+tell us about your favorite tools, frameworks, programming languages, and m=
+ore. We will share the results with the community closer to Jamstack Conf (=
+https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF7=
+8qJDsW7lCgRZ57KLY4f1KTlgdb3 ) (our free community conference, October 6-7) =
+so everyone can learn about what's happening in the industry.
+
+Take the survey: https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sX=
+MNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgdc3
+
+
+
+Jamstack Tutorials
+
+- Breaking Down Bulky Builds With Netlify And Next.js (https://communicatio=
+ns.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1=
+KTlgdd3 )
+- Build wicked fast sites with Astro: An Introduction (https://communicatio=
+ns.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1=
+KTlgdf3 )
+- How to get your e-commerce Jamstack site ready for Core Web Vitals (https=
+://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDs=
+W7lCgRZ57KLY4f1KTlgdg3 )
+- What is a Headless CMS, You Ask? (https://communications.netlify.com/e2t/=
+sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgdh3 )
+- E-commerce Checkout with Angular, Netlify Functions & the Stripe API (htt=
+ps://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJ=
+DsW7lCgRZ57KLY4f1KTlgdj3 )
+- The Beginner's Guide to End-to-End Testing with Deploy Previews (https://=
+communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7l=
+CgRZ57KLY4f1KTlgdk3 )
+- Saving data to Supabase and getting it back again (https://communications=
+.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KT=
+lgdl3 )
+- Build your own shop with the Shopify Storefront API, Eleventy, and server=
+less functions (https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXM=
+NT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgdm3 )
+- Shopify announces enhanced Storefront APIs - A first look with Gridsome a=
+nd Netlify (https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5N=
+drS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgdn3 )
+
+
+
+50 percent better Core Web Vital Scores with Netlify High-Performance Edge
+
+Medallia=E2=80=99s recent migration from WordPress to the Jamstack powered =
+by Netlify has enabled shorter development cycles, increased deploy speed, =
+and most importantly, a better experience for customers and developers alik=
+e.
+
+Read case study: https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sX=
+MNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4f1KTlgdp3
+
+
+
+Welcome new Netlify customers!
+
+We'd like to extend a warm welcome to the latest companies who trust Netlif=
+y with their web infrastructure! Learn more about Netlify's enterprise prod=
+ucts (https://communications.netlify.com/e2t/sc2/Mm-nFbk0P5pW8sXMNT5NdrS6W5=
+7kpwF78qJDsW7lCgRZ57KLY4f1KTlgdq3 ) .
+
+
+
+
+
+-----
+Netlify, 2343 3rd St. Suite 296, , San Francisco, CA 94107, ,=20
+
+Unsubscribe (https://communications.netlify.com/hs/manage-preferences/unsub=
+scribe-all?d=3DVncJJK6FH7k0VHhDPj43TB-zW1V6H733zbV8YW3Fbt5q7-5lkgN1fkvKFk0P=
+5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4W1KVcpz7jDJDWW2-w_4s3YwqBlVSVvkw8J=
+x9bndKYCRF04&amp%3Bv=3D3&_hsenc=3Dp2ANqtz-8Ui0cGA_rKAx79aDacNfQY5iitZB4BcQS=
+xntYjepeN0td3Fl1tpwL2yinel6lWrjdfMUga0HoATsTKvJOZ7-FB89jVog&_hsmi=3D1424196=
+18 )
+
+Manage preferences (https://communications.netlify.com/hs/manage-preference=
+s/unsubscribe?d=3DVncJJK6FH7k0VHhDPj43TB-zW1V6H733zbV8YW3Fbt5q7-5lkgN1fkvKF=
+k0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57KLY4W1KVcpz7jDJDWW2-w_4s3YwqBlVSVvk=
+w8Jx9bndKYCRF04&amp%3Bv=3D3&_hsenc=3Dp2ANqtz-8Ui0cGA_rKAx79aDacNfQY5iitZB4B=
+cQSxntYjepeN0td3Fl1tpwL2yinel6lWrjdfMUga0HoATsTKvJOZ7-FB89jVog&_hsmi=3D1424=
+19618 )
+------=_Part_2853414_1817813347.1626889916430
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3=
+.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" lang=3D"en"><head>
+    <title>Browserstack integration, Monorepo support, Astro, Supabase, and=
+ more - Netlify July Newsletter</title>
+    <meta property=3D"og:title" content=3D"Browserstack integration, Monore=
+po support, Astro, Supabase, and more - Netlify July Newsletter">
+    <meta name=3D"twitter:title" content=3D"Browserstack integration, Monor=
+epo support, Astro, Supabase, and more - Netlify July Newsletter">
+   =20
+   =20
+   =20
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+    <!--[if gte mso 9]>
+  <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+  </xml>
+ =20
+  <style>
+    ul > li {
+      text-indent: -1em;
+    }
+  </style>
+<![endif]-->
+<!--[if mso]>
+<style type=3D"text/css">
+ body, td {font-family: Arial, Helvetica, sans-serif;}
+</style>
+<![endif]-->
+   =20
+     =20
+   =20
+  <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" co=
+ntent=3D"http://communications.netlify.com/-temporary-slug-4cfdc6cd-46f0-43=
+d6-a1e3-164a3408488c"><meta name=3D"robots" content=3D"noindex,follow"><!--=
+[if !((mso)|(IE))]><!-- --><style type=3D"text/css">.moz-text-html .hse-col=
+umn-container{max-width:600px !important;width:600px !important}
+.moz-text-html .hse-column{display:table-cell;vertical-align:top}.moz-text-=
+html .hse-section .hse-size-12{max-width:600px !important;width:600px !impo=
+rtant}
+[owa] .hse-column-container{max-width:600px !important;width:600px !importa=
+nt}[owa] .hse-column{display:table-cell;vertical-align:top}
+[owa] .hse-section .hse-size-12{max-width:600px !important;width:600px !imp=
+ortant}
+@media only screen and (min-width:640px){.hse-column-container{max-width:60=
+0px !important;width:600px !important}
+.hse-column{display:table-cell;vertical-align:top}.hse-section .hse-size-12=
+{max-width:600px !important;width:600px !important}
+}@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_ema=
+il_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;wid=
+th:100% !important}
+.display_block_on_small_screens{display:block}.hs_padded{padding-left:20px =
+!important;padding-right:20px !important}
+ul,blockquote{margin:0;padding:1em 40px}}</style><!--<![endif]--><style typ=
+e=3D"text/css">body[data-outlook-cycle] img.stretch-on-mobile,body[data-out=
+look-cycle] .hs_rss_email_entries_table img{height:auto !important;width:10=
+0% !important}
+body[data-outlook-cycle] .hs_padded{padding-left:20px !important;padding-ri=
+ght:20px !important}
+a[x-apple-data-detectors]{color:inherit !important;text-decoration:none !im=
+portant;font-size:inherit !important;font-family:inherit !important;font-we=
+ight:inherit !important;line-height:inherit !important}
+#outlook a{padding:0}.yshortcuts a{border-bottom:none !important}a{text-dec=
+oration:underline}
+.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass td=
+,.ExternalClass div,.ExternalClass span,.ExternalClass font{line-height:100=
+%}
+p{margin:0}body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-we=
+bkit-font-smoothing:antialiased;moz-osx-font-smoothing:grayscale}</style></=
+head>
+  <body bgcolor=3D"#FAFAFA" style=3D"margin:0 !important; padding:0 !import=
+ant; font-family:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1=
+e; word-break:break-word">
+   =20
+<div id=3D"preview_text" style=3D"display:none!important;font-size:1px;colo=
+r:#FAFAFA;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:h=
+idden;">New Partners. Agency referrals. Intro to Astro. Deploy previews and=
+ BrowserStack. Break down bulky builds with Next.js. And more.</div>
+   =20
+<!--[if gte mso 9]>
+<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+ =20
+    <v:fill type=3D"tile" color=3D"#FAFAFA"/>
+ =20
+</v:background>
+<![endif]-->
+    <div class=3D"hse-body-background" style=3D"background-color:#fafafa" b=
+gcolor=3D"#fafafa">
+      <table role=3D"presentation" class=3D"hse-body-wrapper-table" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; margin:0; pad=
+ding:0; width:100% !important; min-width:320px !important; height:100% !imp=
+ortant" width=3D"100%" height=3D"100%">
+        <tbody><tr>
+          <td class=3D"hse-body-wrapper-td" valign=3D"top" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Helvetica, Ari=
+al, sans-serif; font-size:15px; color:#151a1e; word-break:break-word">
+            <div id=3D"hs_cos_wrapper_main" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_dnd_area" style=3D"color: inherit; font-=
+size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" d=
+ata-hs-cos-type=3D"dnd_area">  <div id=3D"section_1605722359276" class=3D"h=
+se-section hse-section-first" style=3D"padding-left:10px; padding-right:10p=
+x; padding-top:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation">
+      <tr>
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1605722359277_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_16216115101891" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:10px =
+20px; font-size:0px">
+               =20
+                <img alt=3D"Logo Email2" src=3D"https://communications.netl=
+ify.com/hs-fs/hubfs/Logo%20Email2.png?width=3D1120&amp;upscale=3Dtrue&amp;n=
+ame=3DLogo%20Email2.png" style=3D"outline:none; text-decoration:none; -ms-i=
+nterpolation-mode:bicubic; max-width:100%; font-size:16px" width=3D"560" al=
+ign=3D"middle" srcset=3D"https://communications.netlify.com/hs-fs/hubfs/Log=
+o%20Email2.png?upscale=3Dtrue&amp;width=3D1120&amp;upscale=3Dtrue&amp;name=
+=3DLogo%20Email2.png 560w, https://communications.netlify.com/hs-fs/hubfs/L=
+ogo%20Email2.png?upscale=3Dtrue&amp;width=3D2240&amp;upscale=3Dtrue&amp;nam=
+e=3DLogo%20Email2.png 1120w" sizes=3D"(max-width: 560px) 100vw, 560px">
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:15px 20px"><div id=3D"hs_cos_wrapper_module_16194299922711=
+7" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module=
+" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-=
+hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:560px; height:2pt;" fillcolor=3D"none">
+<v:fill type=3D"tile"/>
+<v:textbox inset=3D"0,0,0,0">
+<div>
+<![endif]-->
+<table role=3D"presentation" width=3D"100%" align=3D"center" border=3D"0" s=
+tyle=3D"position:relative; top:-1px; min-width:20px; width:100%; max-width:=
+100%; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; border-=
+collapse:collapse; font-size:1px">
+  <tbody><tr>
+   =20
+   =20
+    =09<td width=3D"auto" style=3D"border-collapse:collapse; mso-line-heigh=
+t-rule:exactly; font-family:Helvetica, Arial, sans-serif; font-size:15px; c=
+olor:#151a1e; word-break:break-word; line-height:0">&nbsp;</td>
+   =20
+   =20
+    <td width=3D"50%" valign=3D"middle" style=3D"border-collapse:collapse; =
+mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-serif; fon=
+t-size:15px; color:#151a1e; word-break:break-word; line-height:0; border:tr=
+ansparent; border-bottom:1px solid #FAFAFA; mso-border-bottom-alt:1px solid=
+ #FAFAFA; border-bottom-width:1px">&nbsp;</td>
+   =20
+   =20
+    =09<td width=3D"auto" style=3D"border-collapse:collapse; mso-line-heigh=
+t-rule:exactly; font-family:Helvetica, Arial, sans-serif; font-size:15px; c=
+olor:#151a1e; word-break:break-word; line-height:0">&nbsp;</td>
+   =20
+  </tr>
+</tbody></table>
+<!--[if gte mso 9]></div></v:textbox></v:rect><![endif]-->
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1619454420758" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF; background-image:url(=
+''); background-position:center; background-repeat:repeat; padding-bottom:3=
+0px" bgcolor=3D"#FFFFFF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF; background-image:url(''); back=
+ground-position:center; background-repeat:repeat;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:30px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"module_1619454420758_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:b=
+reak-word; padding:26px 30px 0px"><div id=3D"hs_cos_wrapper_module_16194544=
+207227" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_m=
+odule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" =
+data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"=
+hs_cos_wrapper_module_16194544207227_" class=3D"hs_cos_wrapper hs_cos_wrapp=
+er_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size=
+: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-=
+hs-cos-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:exact=
+ly; font-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size:28px=
+; line-height:125%; text-align:center" align=3D"center">Hello new tech part=
+ners; plus, a new agency referral program =F0=9F=8E=89</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%; text-align:cen=
+ter" align=3D"center"></ul></div></div></td></tr></tbody></table>
+<div id=3D"hs_cos_wrapper_module_16213671939241" class=3D"hs_cos_wrapper hs=
+_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; fo=
+nt-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget=
+" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:0px; =
+font-size:0px">
+               =20
+                    <a href=3D"https://communications.netlify.com/e2t/tc/VW=
+WYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhv_3q0BVV1-WJV7CgJKFW8b-29x7GTrP0W8x=
+cyQ24MYpLfW6JGKDt4JJd5SW6-blY723000_W481Xfk3HWMTnW7qk2SH2JHsXxVsR5LF3QZ0PzW=
+1kxTvk1PjfcyW2RCbzw7fNYs0W5WJPWB7B3qrSW2b3VrQ8jR7TqW5rKP8C8KMFm2W985QwP4B1t=
+J5V2wfG75mRtzdW8KxhzF4mZhR1W2sr2TK8hMn_5W47Q1q-7-681DW8wWFTX730fKfN1FCQL7_Z=
+ll2W5j3s4W2vxCgjW4DpKLR7XrL9fW6gtpcW8t5Jn3W5SHcp33lxgCwW3VQ9Tp6vZy_DW7BQd3N=
+1wnQNJW32TYZr12hK69W7sD8r85HlmT_W7Yy9f87PnxKhW5rm_FQ3ckr2xW5P-lqG83cbJ63npw=
+1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-height-rule:exactly" =
+data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"Netlify tech partners 4" src=3D"https://communi=
+cations.netlify.com/hs-fs/hubfs/Netlify%20tech%20partners%204.png?width=3D1=
+200&amp;upscale=3Dtrue&amp;name=3DNetlify%20tech%20partners%204.png" style=
+=3D"outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; bor=
+der:none; max-width:100%; font-size:16px" width=3D"600" align=3D"middle" sr=
+cset=3D"https://communications.netlify.com/hs-fs/hubfs/Netlify%20tech%20par=
+tners%204.png?upscale=3Dtrue&amp;width=3D1200&amp;upscale=3Dtrue&amp;name=
+=3DNetlify%20tech%20partners%204.png 600w, https://communications.netlify.c=
+om/hs-fs/hubfs/Netlify%20tech%20partners%204.png?upscale=3Dtrue&amp;width=
+=3D2400&amp;upscale=3Dtrue&amp;name=3DNetlify%20tech%20partners%204.png 120=
+0w" sizes=3D"(max-width: 600px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:26px 30px 30px"><div id=3D"hs_cos_wrapper_module_162136721=
+16942" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_mo=
+dule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" d=
+ata-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"h=
+s_cos_wrapper_module_16213672116942_" class=3D"hs_cos_wrapper hs_cos_wrappe=
+r_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size:=
+ inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-h=
+s-cos-type=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; line-hei=
+ght:175%">We celebrated the Netlify partner ecosystem at a partner update e=
+vent this week, showcasing a customer story about UW-Health and highlightin=
+g <a href=3D"https://communications.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2=
+rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc37CgJ97W7hRrrp3cxZdVM3xr6m2dSx_W1xgLk48CS=
+gqZW7kPCPZ6kT0_0W2Lfq5G7HhrdZW21DPGN2r5MFvW3XQ-Nv62XLR0N8k5Qk049GyWN8ltRPq6=
+BL1bW3PLCgm2CrtK3VJ-ZxG53NQrwW3ZM8ms8qsqr6W5JFBj82WXhj4W79HKbf621FJ4W3jLmKB=
+5JcNLZW6Hw2H22ghqD1W8bfQ8K8n0Q3hW7W9fMB52dLrTVPr5rL2tmZBfW8b7XvL5X0YpBVwCFb=
+r3f_JTVN64wj5G-9BPKW3yy2zR6RP8sYVygsM72z1fcYN7jR4bK5pjFtV2xWMd5CVwQjW3P375h=
+1T4Sp8W2SB_Q51SBdt2W7MDfYg1S2dYFW44lvXs7g-F9sW1VTPSD6XVPjNW8KLKj034r3kj3fGz=
+1" rel=3D"noopener" style=3D"mso-line-height-rule:exactly; color:#2250f4; t=
+ext-decoration:none" data-hs-link-id=3D"0" target=3D"_blank">new enterprise=
+ technology partners in the Netlify Technology Partners Showcase</a>, DataS=
+tax, Fauna, Nimbella, and StepZen. Also, check out the new referral program=
+ for all Netlify agency partners to help you get the most of your investmen=
+t in Netlify.</p></div></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16213672750653=
+" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"=
+ style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-h=
+s-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#5CEBDF;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; =
+word-break:break-word; border-radius:8px; cursor:auto; background-color:#5C=
+EBDF">
+   <!--<![endif]-->
+        <a href=3D"https://communications.netlify.com/e2t/tc/VWWYjl79bWj6N5=
+7JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc37CgTwHVSyGbg1vY77FW3TDj5p2l30wGW3n=
+Fw778VGwkVW3XFbC880NhvBW6Q_9DZ4xlqJnW9lp4Rj1nh6_GW8Nxv-v8_cRS3W19byNG54ptwX=
+W525x3p5ycbN4W8DHV8K3JhkC8W8pjp-Y4zzrnYW4t8VGB4nt8qVW5m7D5s79yky-V5FyFf724n=
+GxW53dCBK4ySx5FW61zG5l1wK926W6LwTfV3CcfdPW90mnQ255bQMHW7MLCcd37Kpm0VJTRC32b=
+dVkcN4DkCqQKDNCnVt4-B81MqcWcW2X9qqf77bwVgVBBxKK5rJ21jW50-ZWd8W5vFRN2fSD4t1_=
+4XFVZxz5b7shDNhW4vyHKk8btZWWW4vGL6k4Q52PFW3Z1t7F8btTDlW3cLXJ_49Q4R3W1Wzj1_5=
+sDDjv3m5v1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-height-rule:=
+exactly; font-size:16px; font-family:Helvetica,Arial,sans-serif; Margin:0; =
+text-transform:none; text-decoration:none; padding:12px 18px; display:block=
+" data-hs-link-id=3D"1">
+          <strong style=3D"color:#054861;font-weight:bold;text-decoration:n=
+one;font-style:normal;">Learn More</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1621530980319" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"module_1621530980319_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:b=
+reak-word; padding:26px 30px 0px"><div id=3D"hs_cos_wrapper_module_16239667=
+755843" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_m=
+odule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" =
+data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"=
+hs_cos_wrapper_module_16239667755843_" class=3D"hs_cos_wrapper hs_cos_wrapp=
+er_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size=
+: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-=
+hs-cos-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:exact=
+ly; font-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size:28px=
+; line-height:125%; text-align:center" align=3D"center">Collaborative Deplo=
+y Previews and BrowserStack =F0=9F=93=B1=F0=9F=92=BB</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%; text-align:cen=
+ter" align=3D"center"></ul></div></div></td></tr></tbody></table>
+<div id=3D"hs_cos_wrapper_module_16239667381751" class=3D"hs_cos_wrapper hs=
+_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; fo=
+nt-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget=
+" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:0px; =
+font-size:0px">
+               =20
+                    <a href=3D"https://communications.netlify.com/e2t/tc/VW=
+WYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc37CgSxhW8FdlHT5GP85_W8s=
+BWy58GYzVKW40v7Ly1vhr77N80FKTBldYWFN5BHwH5Tjft8W20NHwL3w0wvnN5DZn85G8TlYW8H=
+h3Js49K8wbW2h9xY64qB5-jW3dLxpb7p6cSJVcP9Bv9jx9QHN517YwgKrSbjW2pSTKp1cnn-yW4=
+9LLxq2HWSbcW2DYlTn3VgzptW7GZY2N311PsGW7-_bpc6HNFPfW4qF0gS50nLhCW3fXznF1xjjB=
+bW8GkLQg6LKX23W2z68hf21YChNN6W-WCFL6d96W8yLv3t6p_wfQW49TjCR7BM08bW2jHdJh8kK=
+5C-W7v9lDJ3xcHdRV842bW4mZ2mrVdZRwV3YShYKW4MB4Zs3L8y5YW435pxp2KTdn9W9cnHyg26=
+Wn07W7b5P3x78r6vs3f1g1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-=
+height-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"BrowserStack" src=3D"https://communications.net=
+lify.com/hs-fs/hubfs/BrowserStack.png?width=3D1200&amp;upscale=3Dtrue&amp;n=
+ame=3DBrowserStack.png" style=3D"outline:none; text-decoration:none; -ms-in=
+terpolation-mode:bicubic; border:none; max-width:100%; font-size:16px" widt=
+h=3D"600" align=3D"middle" srcset=3D"https://communications.netlify.com/hs-=
+fs/hubfs/BrowserStack.png?upscale=3Dtrue&amp;width=3D1200&amp;upscale=3Dtru=
+e&amp;name=3DBrowserStack.png 600w, https://communications.netlify.com/hs-f=
+s/hubfs/BrowserStack.png?upscale=3Dtrue&amp;width=3D2400&amp;upscale=3Dtrue=
+&amp;name=3DBrowserStack.png 1200w" sizes=3D"(max-width: 600px) 100vw, 600p=
+x">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:26px 30px 30px"><div id=3D"hs_cos_wrapper_module_162396674=
+87602" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_mo=
+dule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" d=
+ata-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"h=
+s_cos_wrapper_module_16239667487602_" class=3D"hs_cos_wrapper hs_cos_wrappe=
+r_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size:=
+ inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-h=
+s-cos-type=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; line-hei=
+ght:175%">Take advantage of a special offer from BrowserStack. For Netlify =
+users, BrowserStack is offering a free trial with 60 minutes of testing=E2=
+=80=94that's twice what's included in a standard free trial of BrowserStack=
+.&nbsp;</p></div></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16239668553484=
+" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"=
+ style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-h=
+s-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#5CEBDF;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; =
+word-break:break-word; border-radius:8px; cursor:auto; background-color:#5C=
+EBDF">
+   <!--<![endif]-->
+        <a href=3D"https://communications.netlify.com/e2t/tc/VWWYjl79bWj6N5=
+7JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc37CgN2dW7Jx7sY3116kpW6KFtrH1TWhHfW1=
+w9MGy99B6f2W8S4Sqm8940LLW7NyJFL1wnFndW2-YyrZ8S4cXzW1qPzLN9l-2qzW39Xbt03ss_m=
+-W7xRRbW5Dv0tbW7BL8Lx6wmKwKW1w0mQP8lv6b0W22vNfr6hynY9W7M7dVW8zZvl3W21rxmd7Z=
+_996W8Zd9Px479Nk8W58rkP36nKc_3W4BtPxw6hBh9lW15wnqV5vc2pyW6rHCfZ7XVm-4VFtnR7=
+13Xf90W84Cb5418sNLkW5W6h-71_YBDbN59j50vr5FBPW79jsN84551tbN4Q3T5j2780jW2tHvg=
+f6D36kqVn3f1t6S0CmtW4fjZ6v4MqhytW8KGTCJ2khQdfW6n2SPj50v4w6W3nt4ym70GW3nW9jn=
+VHJ178LL63gN91" target=3D"_blank" style=3D"color:#00a4bd; mso-line-height-r=
+ule:exactly; font-size:16px; font-family:Helvetica,Arial,sans-serif; Margin=
+:0; text-transform:none; text-decoration:none; padding:12px 18px; display:b=
+lock" data-hs-link-id=3D"1">
+          <strong style=3D"color:#054861;font-weight:bold;text-decoration:n=
+one;font-style:normal;">Learn more</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:30px 20px"><div id=3D"hs_cos_wrapper_module_16215309802841=
+" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"=
+ style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-h=
+s-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos=
+_wrapper_module_16215309802841_" class=3D"hs_cos_wrapper hs_cos_wrapper_wid=
+get hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inhe=
+rit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos=
+-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:exactly; fo=
+nt-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size:28px; line=
+-height:125%">More product news</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%">
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhtc5nz3hV3Zsc=
+37Cg-qjW4656r08TwbPQW6_fVz779ZhTqW5VnB6R25dLl6W2kkWB48dX4vqN4H--Hzj7b0FW5d9=
+n6g4ypLW_W4GC-kQ4JJkJ7W2jVSHP5HN3wvW32hX-t5dSjh5W2tQnPn9kwFFTN6mrv9D5kGTsN6=
+fXXdYt-QCgN4SthjFynQGYW8B2JM565F6SzW8MJRRH243dF1W4PPJWd81TXP5W1-VRBW76HkxgW=
+4hSQK85Hs3g5Vdr5T66mfshvW2X5x-m1MKhbfW7Cpchw4PNQWBW2_zjwy58DF7wW8TFB5R11PDd=
+lMHjnKB7FWCbW2H9Ncj7k14zGW42pPKD11QnZqW6KDQw83WnxLHN3g_TsM-D9QRN6cmc76GvZyC=
+W863r1N4h_T_1W31qDGL7yQ3TYW3-z0XM7NWxpMVWp1Vn64sFmMW1vMxnF1ywhmS39dT1" styl=
+e=3D"mso-line-height-rule:exactly; color:#2250f4; text-decoration:none" dat=
+a-hs-link-id=3D"0" target=3D"_blank">Monorepos on Netlify: How docs process=
+es led to developer experience improvements</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc=
+37CgWCfW7g0VTz4q1l1bVTGzdc792kYsN791zV9SJMF8W538CL-4yhlYnW8WkYFm3ZgBtvW67Ff=
+pg1cN9VZW32xrrB1z1V7RW5DQXtV3SqxSVVvm4vr5lShtSW1gk0bw2jmTrvW82SWfs36vNrGW54=
+3BH92TxBGLW84-0bW3y76xrW3C2Qkm6fTj3QW8ZVh0p8sTR0MW63cCLf4MCLHCW3ckDTL2yP42N=
+W6wmzJf8N7dxtW38M6c06hb-FJW7H5z_x7r6T5SVkxNdw2wwDKYW1Vt86X5f2DnzW6v9d-m3W6M=
+vSW7sWdjY9fbDDZW4mZh1f6K2l6bW786gZd7w15yRN59pMRC6YqZQW6NTfNr6zRF1nF69tXkyv4=
+M1W8Yh3QR5HdL8BN6Smz-R1XlC8W98tDdz52XBrn3fyy1" style=3D"mso-line-height-rul=
+e:exactly; color:#2250f4; text-decoration:none" data-hs-link-id=3D"0" targe=
+t=3D"_blank">Managing environment variables from your terminal with Netlify=
+ CLI</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhv_3q0BVV1-WJ=
+V7CgQJCW4g6PNd6ntnHmVVW-pC14xrsgW20_kpM3WQPSsW84_1B964Py8fW6wBz9t7WMFTxW7xl=
+W1r7PDDYkW2pX5gV3YFNY3W1D5fVb7mglZbW4y9fby3Q-YBrVdh8HT9lwV41W7flvXD5dnGYvW1=
+vCXN11F-n5kW8y0pDG3dskGqW29fSKp1kl9R9W1M57B735XTqqVNp8VV7Jp0YhW6qpNqv7rygnQ=
+W5ggNqN7hKGFmW31PMVF6XXtd0MDbRcHkP7kxW3vZbQZ6VpsT9W7cRstx8bXT4JW76z-0f3HnTk=
+qVz0hlM2-5gNCW1C7GF36cXFd5W7_-wg_8G2ZR6W1C28rW5rcnz7W6DhNmg53f7SfW8fc88m9kZ=
+HpzN8MSMqsfqPLF3l6Y1" style=3D"mso-line-height-rule:exactly; color:#2250f4;=
+ text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank">How to roll =
+back a deploy in 2 seconds on Netlify</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhv_3q0BVV1-WJ=
+V7CgPHGW56fr4c8y7z3zN6TB1CNCk6ZnN8BtQNlrFcLrW844yyt8fj_LyW6dTwwg8XRCBGW6RTV=
+fD15Kd25W943D2Z76y0Z-W8yhD-R7tkhVPW1xl6Bd2JKbzDW5_GZC57lryZqW30RHSm1wppkFVy=
+wy4T497M7YW8kBLKS57XWW_VNyDtq7m_0WMW8KKLBl3dqKprW5khbxS7GTRGDW28CW6D5QdW6NW=
+6SD9QD7CNg2TW68xw887rv7S4W8lZNxH2LbLN2W7NZHDM73ynJjW5ptYbd7Qbb7XW4TDYmP4_k_=
+vyW1RpLBP1YvX8RW2y4kGn1HWnYwW8ww5gl1m76j_W17J5KJ7QPmfsW14L2-f7qwR2yW1XTmj61=
+7H3LQW214h0D4ZgSwn3myp1" style=3D"mso-line-height-rule:exactly; color:#2250=
+f4; text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank">Netlify B=
+uild Plugin of the Week: Ghost Inspector</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhvJ3q0BBV1-WJ=
+V7CgVzSW7k0Xr71m7YqRVXgZrK8jX24QW2-B8Tk9hY65LN566ZFXt_ZVcW1GTwL857qL7tW57qH=
+gY8GCLPKW8vyX_x4qb2lLW4RMM_L11fvKwW91Qwc48s9br5N7MXTbmP4DWGW36FmwL5VqBvbW2P=
+-BdR1bQVQZW5XPC-22wwVTQW7f6f912_cdtNW45gCh967GynPVfCFkn7VcLPFW5R5Rdm8fbqRlW=
+34ml4F4TB-zkVPxfVY4DSmdHW3158yH2d1h8CW5QJxYb9djNqXW3tfJHP4ZQWsGW8yDBTJ8-7MF=
+7W86GTx-5bMJBfW8Y2J8557WjYyW7G9cGR8zhZldW1W7sVG83c46DW4L8rrd9f7nnY3bMr1" st=
+yle=3D"mso-line-height-rule:exactly; color:#2250f4; text-decoration:none" d=
+ata-hs-link-id=3D"0" target=3D"_blank">June Changelog: What's New at Netlif=
+y</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc=
+37CgXvjW6nK6SW99VrMcW1wp_vx2xSGyMW12LFD58f-NBQW2Nc8_t44f87sW7zkHRD5HP5BwVHG=
+Yrj8k6WWvW6JYHKz3QlTHbN3-gwDTHf7NtV1p5ny3t__bPW299rHd8hDZpLW2CvyhF55yPY4W62=
+B7gF3D5sX6W7QN0_v8S9jC-W2j6PjT6vyP9gN8CSvd3ttq3xW2_HDll7JW8dRW4GHLfx3D9nrBW=
+2HnWnF1ZkxG4W2LWJBc9gN89gVsbNXx8JMKf8W3J05dk2k9y6rV1rjf31QqYwLN6G7lB9l7BQdW=
+5tX__h7Hn6WBW2WJC5d7P023HW4s2J_-3NDFWmW7NBBX8141m1WVlWy5W5t1FkNW8BWKCH7Y2tn=
+RW6hpstK4v-NHLW634nHP4BY5qMW5Z0TvG74LCzY3lJ41" rel=3D"noopener" style=3D"ms=
+o-line-height-rule:exactly; color:#2250f4; text-decoration:none" data-hs-li=
+nk-id=3D"0" target=3D"_blank">The Agency Partner's Guide to Managing Client=
+ Projects with Netlify</a></li>
+</ul></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"builtin_section-1" class=3D"hse-section" style=3D"padding-left=
+:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF; background-image:url(=
+''); background-position:center; background-repeat:repeat; padding-bottom:3=
+0px" bgcolor=3D"#FFFFFF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF; background-image:url(''); back=
+ground-position:center; background-repeat:repeat;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:30px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"builtin_column_1-0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_16141977446692" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:0px; =
+font-size:0px">
+               =20
+                    <a href=3D"https://communications.netlify.com/e2t/tc/VW=
+WYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhvp3q0BhV1-WJV7CgBjTW4ZL5j67dT8c6V20=
+vSZ3b8ZYdVsd2NZ2qHSk1W5kJYHh38_1gjVHC4tr4Y0YyVW65RDP04hHCGJW71wGBN9cg8L4W2X=
+VDcS8Pt-v1W741VQQ81wGQ0W2lllnH5wTXcjW8_c7PM3qTFwHW9bQFj67qwz25W8RB-fR8-X-0M=
+VDgszf7FbTw1W6n0kp08kF8b9N993Z-mt6xmfW9hZNn44-9Dg3W2CKc5C7h2RGxW3Lkhvg3FlbF=
+FW55HNTm6gn8TvW99dD9-4MXNf5W7ZfzlV4C9FX4W1DBL4k6hm_PQN3lg3_WZz8gCW76M3S37fP=
+y7sW27jVSJ8yFHmr3q5q1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-h=
+eight-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"OG Image 24" src=3D"https://communications.netl=
+ify.com/hs-fs/hubfs/OG%20Image%2024.png?width=3D1200&amp;upscale=3Dtrue&amp=
+;name=3DOG%20Image%2024.png" style=3D"outline:none; text-decoration:none; -=
+ms-interpolation-mode:bicubic; border:none; max-width:100%; font-size:16px"=
+ width=3D"600" align=3D"middle" srcset=3D"https://communications.netlify.co=
+m/hs-fs/hubfs/OG%20Image%2024.png?upscale=3Dtrue&amp;width=3D1200&amp;upsca=
+le=3Dtrue&amp;name=3DOG%20Image%2024.png 600w, https://communications.netli=
+fy.com/hs-fs/hubfs/OG%20Image%2024.png?upscale=3Dtrue&amp;width=3D2400&amp;=
+upscale=3Dtrue&amp;name=3DOG%20Image%2024.png 1200w" sizes=3D"(max-width: 6=
+00px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:26px 30px 0px"><div id=3D"hs_cos_wrapper_module_1594321695=
+6202" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_mod=
+ule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" da=
+ta-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs=
+_cos_wrapper_module_15943216956202_" class=3D"hs_cos_wrapper hs_cos_wrapper=
+_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: =
+inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs=
+-cos-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:exactly=
+; font-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size:28px; =
+line-height:125%">Last call for the 2021 Jamstack Community Survey =F0=9F=
+=96=8A=EF=B8=8F</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul>
+<p style=3D"mso-line-height-rule:exactly; line-height:175%"><a href=3D"http=
+s://communications.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJM=
+N1TFhvp3q0BhV1-WJV7CgYcbW355C0X1QgDnHW3k8rb850px_4N41L-dqjbB0QW3d50mt4tQCNK=
+VBKNk31lk2V4W824zly8fthxRN1vRSDKYjKc8N8xkj6mMKgwCVPy723157WnYN5f9wS2K106fW2=
+2tvVm727QT1W5_2ByQ8Ks5nvW5HQZ473fbW5LW1MmsxD8Gr1wqW8Hb3zS50gqh2W3K2lpg2b0dC=
+fW7jPF8G2L1FSDW55psr-2Bvc0ZW14YgqW44_BHzVmMjnm4Zl1gyW1v95YY8h0PsgW6qxJXw9bT=
+C-cW7Xjzhd7gGckRN6nSBRXml8FBW5kR0vf7nXP_TW5LQmS44CrRpV34311" rel=3D"noopene=
+r" style=3D"mso-line-height-rule:exactly; color:#2250f4; text-decoration:no=
+ne" data-hs-link-id=3D"1" target=3D"_blank"><strong>Take the 2021 Jamstack =
+community survey</strong></a>&nbsp;to tell us about your favorite tools, fr=
+ameworks, programming languages, and more. We will share the results with t=
+he community closer to <a href=3D"https://communications.netlify.com/e2t/tc=
+/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhtQ3q0zJV1-WJV7CgPyGW6QbFGY8Lb8Y2=
+W651Gck6PPhLVW1p8cwc6WXhRdN5-KQcvkHJ-gW2qLc076s-gCFW7pHtdl6r3jf2W2M0bxs4WXQ=
+YNW58N2W-2d58FqW7w4jwX6rzLKnVRrRw517C3f-VXmKNC3jTH_7W3T6h6H1P1v2fW29yJqf6Lg=
+P-lW7wlgVx2mCl6vW4W_Qy85g1KssW8jwYFX5mpHqQW3_3SgZ4rmFcVW2qhB1N5Fm6WsW2zSvY9=
+3KC3fJW9d5C386h-ll6VCkdh21kXlyNW8mBX1m1LZhkQ3cX11" style=3D"mso-line-height=
+-rule:exactly; color:#2250f4; text-decoration:none" data-hs-link-id=3D"0" t=
+arget=3D"_blank">Jamstack Conf</a> (our free community conference, October =
+6-7) so everyone can learn about what's happening in the industry.</p>
+<p style=3D"mso-line-height-rule:exactly; line-height:175%">&nbsp;</p></div=
+></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16214818244392=
+" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module"=
+ style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-h=
+s-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#5CEBDF;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; =
+word-break:break-word; border-radius:8px; cursor:auto; background-color:#5C=
+EBDF">
+   <!--<![endif]-->
+        <a href=3D"https://communications.netlify.com/e2t/tc/VWWYjl79bWj6N5=
+7JfhS2rWf1W5QKV2t4vgMJMN1TFhvp3q0BhV1-WJV7CgWRwN2t43LNCkkFJW2cN-sF2cPKgfW32=
+c5K71C89q7W15jytv8X7SHGW3qP3ZC3M3DJxW6kM0St3H8563VZkHNb2jH716W28BW868bP_P1W=
+4gSQKb4QpMr8W7PjMgp3QYDqBW2kPjyg8tpBZ2W2gXlrN8ZyHq-W7HcmT47DMTWJW2YRTn_57NB=
+3YVDRDy34t7g-NW6rp3hY433vjMW54L6BX7p9N2KN23mgYX7b98hW8wqnFn5K87kDW2K-LMf8Mw=
+sGSW5C50fH192Vb7W1LTpvF81h84GW2qvQw43TD6K9W2SNZb22B8WJRW9g95d9831GFfW3PwDh8=
+63VXkq3jfX1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-height-rule=
+:exactly; font-size:16px; font-family:Helvetica,Arial,sans-serif; Margin:0;=
+ text-transform:none; text-decoration:none; padding:12px 18px; display:bloc=
+k" data-hs-link-id=3D"2">
+          <strong style=3D"color:#054861;font-weight:bold;text-decoration:n=
+one;font-style:normal;">Take the survey</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+<div id=3D"hs_cos_wrapper_module_16268064336801" class=3D"hs_cos_wrapper hs=
+_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; fo=
+nt-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget=
+" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:40px =
+0px 0px; font-size:0px">
+               =20
+                    <a href=3D"https://communications.netlify.com/e2t/tc/VW=
+WYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhvJ3q0BBV1-WJV7CgGCrW74_75H2kv2QsW5X=
+3SC33s-s-8W8TqT5X4V44zLW2LwDtX8QLLy9VwLCPn1xDyV0W7XYZqG6LwLNsW2MZGgR7M_JnMW=
+4rxGb8146S57W4ZMGMD1Sw-YqW1QfD3T12SHH-W5R3Nk46m53lhW1mGhPJ5tBCCmW7wLPBy88F2=
+xpW6NHw7W7gk2GjW7ptL9z15-7jdN6rwdhSVGGV1W6VhjzG8L76sMW7tWhHT5hhWTbW4Ck9473M=
+VJpCW8r76F322z6NMW1vNhM32jzxySW4h_M4S6XCR72N9g988gs0QHWVYFkjB1hMykYW3y8ptN5=
+FDl6ZW6Yg2642jV2VlW71X3GP9lsZvhW8TM5lx48hs5y36s61" target=3D"_blank" style=
+=3D"color:#00a4bd; mso-line-height-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"Linked In 18" src=3D"https://communications.net=
+lify.com/hs-fs/hubfs/Linked%20In%2018.png?width=3D1200&amp;upscale=3Dtrue&a=
+mp;name=3DLinked%20In%2018.png" style=3D"outline:none; text-decoration:none=
+; -ms-interpolation-mode:bicubic; border:none; max-width:100%; font-size:16=
+px" width=3D"600" align=3D"middle" srcset=3D"https://communications.netlify=
+.com/hs-fs/hubfs/Linked%20In%2018.png?upscale=3Dtrue&amp;width=3D1200&amp;u=
+pscale=3Dtrue&amp;name=3DLinked%20In%2018.png 600w, https://communications.=
+netlify.com/hs-fs/hubfs/Linked%20In%2018.png?upscale=3Dtrue&amp;width=3D240=
+0&amp;upscale=3Dtrue&amp;name=3DLinked%20In%2018.png 1200w" sizes=3D"(max-w=
+idth: 600px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1621481922213" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1621481922213_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:b=
+reak-word; padding:30px 20px"><div id=3D"hs_cos_wrapper_module_162148192901=
+24" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_modul=
+e" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data=
+-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_c=
+os_wrapper_module_16214819290124_" class=3D"hs_cos_wrapper hs_cos_wrapper_w=
+idget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: in=
+herit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-c=
+os-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:exactly; =
+font-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size:28px; li=
+ne-height:125%">Jamstack Tutorials</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%">
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhvJ3q0BBV1-WJ=
+V7CgZyyN1JwNfMS6rJvW70nx4q1yXwcvW7-gzRT1BfZn8N8Zc34w9C5GFW6f-dp56qtsCbW5nv0=
+tC99jvn9W2xxtHL99W_zJW23zqrB8cG5YDN8VnqvXx1dhfN4JzTC_CQq7fW8kxQJ16Df6dHW84d=
+CcR5RzLKnW97cQjf1kNpVrW3C_pkC1bcrW2W25K7zr6hg1LlW22bZm77MJf4SW1_GGFz6Q4yjhW=
+8CDwMD7KPL_MW3V2wt21rRLqPW8p_KjN8H6H0nW8JTd4Q3RkpFyW6BxFCH3T0rnVN57NTCWy95y=
+8W2r6w323hMvTcW7cg81x4M8ls1N259XH7mW1N5W3wgFyh89Ss29W1mn9mH1ZwpQ3313x1" sty=
+le=3D"mso-line-height-rule:exactly; color:#2250f4; text-decoration:none" da=
+ta-hs-link-id=3D"0" target=3D"_blank">Breaking Down Bulky Builds With Netli=
+fy And Next.js</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhv_3q0BVV1-WJ=
+V7CgXVVW2RWqjQ1VDv7TW439Pdw6y4z1LW2LRpcL3nHFH0W5V_zbp2TXMNLW4q59QW3CBpGnN3g=
+ZH3FTnQ0wW1j_J1r6kB47QW2TYfw-6LSJh_W8Q97-r381FXBVWhVJ-5rGkg3W60p0s58D6yLrW7=
+Yjpx73VLjdsW9bPrWm1n1w8WN9dkpsZTz6FTW5prdhD3hzJb4W7dtb4K8bn2Q4W73v4p_6cL5dG=
+W2N7D6_7FyljzW1RcPj27bT8WsN1v1gyB-tmrzW57DZP42Nt_-PW94Lqd343QMsWW1BN8_D2scV=
+_gVml02c1rCMSpW7801PC2GvlTYW25wR6t4KBcWPW40V7tt6pB-mtW1N4TKw1zPL0TW7CYqxP60=
+DTCnW1DXqFC15MpJ33fSz1" style=3D"mso-line-height-rule:exactly; color:#2250f=
+4; text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank">Build wick=
+ed fast sites with Astro: An Introduction</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc=
+37CgW4JW9bccjf1WjGN3W5kX1Y_3kggBqW2yQjPf1DbZLpW5pB0Dt4Hyv1FVp8hFG2D1P5SW27_=
+CHt4R-bH_W4k07F91-R3ddW93cg7H72LYmjN90bTNTN0VPbN8cT2tvDpmXMW5qkk_h2HdrQZW18=
+ZZSG2DgbMgVrgQQf6cKyCVW3wxbM78n8TJJN3D-pPv5cZ1fW48bcbV57Dgc2N9jfNR4tzgh2W5l=
+XW1S7Cdxg7N2Gxcwc8Y8fcW13_5-_6xtLj4W3PHZSp2JsVKcW6Hsm4b15GGm3VsW1g54bl23sW3=
+pcmzL1BxbLjW3Lb9s64GrK01N23fxJC-2tkHW3_VDqy73VzgKW7HfG0b8ZCcgyW327vc52Jh_mr=
+W5h6JfB2yWj8QW2RlFSv2BYT50W3Vjb5H4nCMMM3d2K1" style=3D"mso-line-height-rule=
+:exactly; color:#2250f4; text-decoration:none" data-hs-link-id=3D"0" target=
+=3D"_blank">How to get your e-commerce Jamstack site ready for Core Web Vit=
+als</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhvJ3q0BBV1-WJ=
+V7CgNrxV63KbC71lcv_MYGMQn_Q_b-N7d7f8pzR4bdN4j2jbpvRGfMW88z5h416Sf8yW7CsK7g8=
+g3ny1W8V-Ggw88SyqQN3jZtr-1ySCTW5nVxNj3NFjyQW4xth-W7NlFYSW6gMf2B6zZwVtW2VyyP=
+h4c1r9zW7NsLkK5K-J87W7Fbtz_5kVWhjW5V6Wb-2FBnwdN3Y1wY7q05HrW2z-Wl723Db7yW1dY=
+py21S9s2RW26_90M3kHMxTW2Vqb_Y2SbY3rW1fGQFj8_dHDBW7myk3b5p8QCJW39_SfG4ffvffW=
+8-CGCN6W6KmwVj94Vb8chCr-Vt67Sn2dqM6_W6Mn6ST1CcYjSW4kNC2g8NsL5R3gt11" style=
+=3D"mso-line-height-rule:exactly; color:#2250f4; text-decoration:none" data=
+-hs-link-id=3D"0" target=3D"_blank">What is a Headless CMS, You Ask?</a></l=
+i>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc=
+37CgJQrW6mSG3_7SLzSvW7KfRLk5_Bdg-N7TP_W0c6DmJN64FqF_tQrY6VpsD7V3SXBcWW1knGc=
+r7SJYNmW7xbshT3GwRNlW7YHPMn17NLBpW7jZBDS5v1mvFW1dyjVz3jndlhW89Kz-W2FTsZZW86=
+N1d01mLVxmW91BpSt2_SlJcW1hvT867G7Dk3Vrjc2856Zmf4W3-PHR21JtVNCW4WQvnl1jYNtFW=
+8XcbGY54t36kW1Fz6L25cCHDWW73RwgV6s4Y5HVbxPdF6P2j3lW105PW04_7TWHW3jQ6pf6rnqX=
+8W300dpq5NYdL0W70437p2jXGHqW2fcmY13DY8M2W2Z1tkr5STykjW7ydpXP3TbmgyW8GmpSg1f=
+_shBW35p7JL8HksvMW4XJ7d935Pht6W95D3_c2DQLfd3mR-1" style=3D"mso-line-height-=
+rule:exactly; color:#2250f4; text-decoration:none" data-hs-link-id=3D"0" ta=
+rget=3D"_blank">E-commerce Checkout with Angular, Netlify Functions &amp; t=
+he Stripe API</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc=
+37CgP35W1C14QH4yKWgtW5cyJcf7LxsLvW6Mg9X08b17kzVJ8KQL2QRJ_bW1t6k692bFGhFW5rq=
+2yQ52xVjSW3GyylZ871_k8N8Z4gjBt50JmW2RtDRl2kHg9TN54f2yStv4cpW7QkrL_2q3C0mW3M=
+48CG7sQmf9W8Hh0wG7kC5F4VljyVD8dcPXTW8cmv-n2LnW0wN9hllp6XG1GnN6YNY8rrZ7d3W7z=
+SdR97CFcn_W4TS4hJ4_mJJWN90d-k54y4wZW38D_wM89sTQhW3whbmd2f0H4yW1jHYl6974G7wW=
+8hYg-H2KDRKzW6FtR3v3C-tcyW98Sc6s1HkzrHW152dy78bk_xmW8G7k3Z8gg14NW4-sQbP2gCq=
+mRW2zLbj-2qJcN_W7N05Rd1xlvX8W1H8pQN1p-DFY3mS51" style=3D"mso-line-height-ru=
+le:exactly; color:#2250f4; text-decoration:none" data-hs-link-id=3D"0" targ=
+et=3D"_blank">The Beginner's Guide to End-to-End Testing with Deploy Previe=
+ws</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhv_3q0BVV1-WJ=
+V7CgY0pVD8c4j9fF5-ZW4nl3tG3dnDVMV1D47f7XD9h3W5W13S53w8_3NW6DyyCX1_n6wQW93xk=
+575r6fvTW5Czgwd5hB7cCN1KFFldJyg5yW5k_1KR13-WB8W4N5hK63X0xgvW2NDrp72JCjLRW5w=
+G6tS3tJ90bN5j4_wBG51FTW2ynZzw477r-pW4jxkbS1BqjPdW8N7Bjt8FrYPtW4qlHcD2lkmvZW=
+1JXnr769j8-QW6JtbxP4zNRZfW5SrNkT1Y2qVTW22KqQV81F2J4W7SV6Y92LD4tMW1VWvlx1rx7=
+05W2XrKh224WQHMW6CFLVy43t2fzW1HxCkL1GVZn7W6JBPKs3NgtkSW2qY7pm7XnJ56W4fqThF3=
+QN6HrW5c8DhJ4hWHWZ3fMr1" style=3D"mso-line-height-rule:exactly; color:#2250=
+f4; text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank">Saving da=
+ta to Supabase and getting it back again</a></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhtc5nz3hV3Zsc=
+37CgBFWW5j7Ncm5WRBd7W95tnd_2yTySTW4CTGTT1TlGrSW5JBt3w7Vr3Q-W6YHPrY7273V4W8p=
+89lf2JLw_yW62TQzP8BywRKW4Tkr6r64006sW4MxmKw640VfbW1Vc9VV7yZMQ0W4X9w9p9h-971=
+W5jNPyw5ZMKDTW1DlgRv7JnJFhW6Y-fCq4sZRwsW3rG8zp2jNNsdW5TZmqm95kwHkW4S2V2j664=
+-dVW7T2DYQ8NPQ0KW2zrFGR7Qy2RZW9479V12MG4rVW2JRqPB3tWh2KW9dr42b3NfJMwN97Zy3r=
+wfrL9W98rGsp6QgY4SVHjZ1z7cm0ZpW2p3hlC5cx_8lW79MtQM5VQqcPM4g2n18vS-rW8svRR84=
+BvhwxW2R_k4C3mj0HlW8MrBbG97rm_BW1wxtBk3qNq43W4jthD_8bhWFgW5nzS-Q5lZX523mRK1=
+" rel=3D"noopener" style=3D"mso-line-height-rule:exactly; color:#2250f4; te=
+xt-decoration:none" data-hs-link-id=3D"0" target=3D"_blank">Build your own =
+shop with the Shopify Storefront API, Eleventy, and serverless functions</a=
+></li>
+<li style=3D"mso-line-height-rule:exactly"><a href=3D"https://communication=
+s.netlify.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhtc5nz3hV3Zsc=
+37CgCcWW78GX3f20LXpwW2HDG_36gpsngW4NwFBV49TdXCV7knsz1tvKXYW1v4R0T390mgvW6LZ=
+SXW2dTQgCW5rMRlG4S_30pW5j7RDw2W_xM7VS321Q6H1nGVW7wgJ-95L2p4wW8DjDmh8911c6V4=
+t35x1GDLNRW6zhN597HFM7DW8q9Kd046LcPLW5vtd4f6J784jW3HbGnm35mmLZVrcJ9K4mdn67W=
+5KKMSd50408DN1rk2q44y5fyW4nHRcF5Kmdn2Vqdf3f13VscjVr5HvC4Bs3zpN8zw5sphP1wLN5=
+g9GRCLZ0lvW964W7w3Tdl_jN3rpR4qYVS_-MK-4N1jQDF1W2gLJB83kGgzXW24fBrW76KVZCW8P=
+w3Sk7_qRYwW4ZM5Kv77fGWmW68ldbk5_kg-WW3m60JY6JGxt8VmQSr94W_d5T33zD1" rel=3D"=
+noopener" style=3D"mso-line-height-rule:exactly; color:#2250f4; text-decora=
+tion:none" data-hs-link-id=3D"0" target=3D"_blank">Shopify announces enhanc=
+ed Storefront APIs - A first look with Gridsome and Netlify</a></li>
+</ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul></div></d=
+iv></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1619465969092" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF; background-image:url(=
+''); background-position:center; background-repeat:repeat" bgcolor=3D"#FFFF=
+FF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF; background-image:url(''); back=
+ground-position:center; background-repeat:repeat;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"module_1619465969092_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_16194659690593" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:0px; =
+font-size:0px">
+               =20
+                    <a href=3D"https://communications.netlify.com/e2t/tc/VW=
+WYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc37CgQwFW3ngSfc62BHt_W39=
+PW2K45mKh1W5NFhRB64CTN9W3vst7S5V9VJ9W6Rm6zG1jRFv4VltXzd4F7V4pW5Q2RJN22nr0KN=
+675nDvlTbtVW3lNPrm1MGm-SVxKf7L3k4yhZV2wyNP1FJJq-W6kvC5L4r49PvW3txgNR6Dg-mpN=
+2Ft48VSrYDqV877QZ5FgyZSW8S64817Z5BWgW8t8W1n7mkDyVW1VBLSd6CzsfjW6ZZLls51MF9x=
+W8FcgGt4Zd1lxW5XPyX_8L-LKrW35_BPs751637W1YS_mL58cgBPW2YqRhL5kZGY1N6W1jNWkJc=
+DqW21ydk88PqNH9V-Zsgs5x0tk5N57gMnkg79HbW97fzXR7d71m3W2yFm4R93BYf6W7d2md75m1=
+nxNW4DWWXp5KYXJL3n-d1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-h=
+eight-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"Medallia" src=3D"https://communications.netlify=
+.com/hs-fs/hubfs/Medallia.png?width=3D1200&amp;upscale=3Dtrue&amp;name=3DMe=
+dallia.png" style=3D"outline:none; text-decoration:none; -ms-interpolation-=
+mode:bicubic; border:none; max-width:100%; font-size:16px" width=3D"600" al=
+ign=3D"middle" srcset=3D"https://communications.netlify.com/hs-fs/hubfs/Med=
+allia.png?upscale=3Dtrue&amp;width=3D1200&amp;upscale=3Dtrue&amp;name=3DMed=
+allia.png 600w, https://communications.netlify.com/hs-fs/hubfs/Medallia.png=
+?upscale=3Dtrue&amp;width=3D2400&amp;upscale=3Dtrue&amp;name=3DMedallia.png=
+ 1200w" sizes=3D"(max-width: 600px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:26px 30px 30px"><div id=3D"hs_cos_wrapper_module_161946596=
+90594" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_mo=
+dule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" d=
+ata-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"h=
+s_cos_wrapper_module_16194659690594_" class=3D"hs_cos_wrapper hs_cos_wrappe=
+r_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size:=
+ inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-h=
+s-cos-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:exactl=
+y; font-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size:28px;=
+ line-height:125%">50 percent better Core Web Vital Scores with Netlify Hig=
+h-Performance Edge</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul>
+<p style=3D"mso-line-height-rule:exactly; line-height:175%">Medallia=E2=80=
+=99s recent migration from WordPress to the Jamstack powered by Netlify has=
+ enabled shorter development cycles, increased deploy speed, and most impor=
+tantly, a better experience for customers and developers alike.</p></div></=
+div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:bre=
+ak-word; padding:10px 20px 30px"><div id=3D"hs_cos_wrapper_module_162136736=
+11024" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_mo=
+dule" style=3D"color: inherit; font-size: inherit; line-height: inherit;" d=
+ata-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#5CEBDF;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#5CEBDF" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; =
+word-break:break-word; border-radius:8px; cursor:auto; background-color:#5C=
+EBDF">
+   <!--<![endif]-->
+        <a href=3D"https://communications.netlify.com/e2t/tc/VWWYjl79bWj6N5=
+7JfhS2rWf1W5QKV2t4vgMJMN1TFhsX5nz2_V3Zsc37CgGCmW6Jpmgw997Q_3V6v6Fj4WSB1VVqD=
+j3H28L1XRVH1TLt1Sds7NN4VjJMjlMn97W5dBg6D9dqNq3W93-pqT7q3TGdVnxHLF8nRJGlW7Pd=
+QM86kWV9zW8K_S1D2XTmtVW3P0mqq2CX72pW2f_89F3R1fqxVLjnW36Z8cnyW3z0p7X6Z2RftVD=
+2pZX7crfZmW4-Lxsj5v-bXGV4cYmj32t5ZMW5sJXnY2Tb6qqW8vpJmw6PQ1wqW4mHHPf2yMLYCV=
+wJXb73Y2SzGW71vL446kF3npW392T_53qyMZTW3Yj2w55fqxjBW7Pw4VT2MqCymW280fkj8qnmX=
+nW1GqcHR8vwdb8W5vBrz17mJC6dW86HfVq70tSDgW6fC61n6s7bKpW2GJG6g8Q9f8FW3DrlPR15=
+L8n334b81" target=3D"_blank" style=3D"color:#00a4bd; mso-line-height-rule:e=
+xactly; font-size:16px; font-family:Helvetica,Arial,sans-serif; Margin:0; t=
+ext-transform:none; text-decoration:none; padding:12px 18px; display:block"=
+ data-hs-link-id=3D"1">
+          <strong style=3D"color:#054861;font-weight:bold;text-decoration:n=
+one;font-style:normal;">Read case study</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1621482996126" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF; background-image:url(=
+''); background-position:center; background-repeat:repeat" bgcolor=3D"#FFFF=
+FF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF; background-image:url(''); back=
+ground-position:center; background-repeat:repeat;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"module_1621482996126_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Helvetica, Arial, sans-serif; font-size:15px; color:#151a1e; word-break:b=
+reak-word; padding:26px 30px 30px"><div id=3D"hs_cos_wrapper_module_1621482=
+99606812" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type=
+_module" style=3D"color: inherit; font-size: inherit; line-height: inherit;=
+" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=
+=3D"hs_cos_wrapper_module_162148299606812_" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font=
+-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" =
+data-hs-cos-type=3D"rich_text"><h1 style=3D"margin:0; mso-line-height-rule:=
+exactly; font-family:Helvetica, Arial, sans-serif; color:#151a1e; font-size=
+:28px; line-height:125%">Welcome new Netlify customers!</h1>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul>
+<p style=3D"mso-line-height-rule:exactly; line-height:175%">We'd like to ex=
+tend a warm welcome to the latest companies who trust Netlify with their we=
+b infrastructure! Learn more about <a href=3D"https://communications.netlif=
+y.com/e2t/tc/VWWYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhtQ3q0zJV1-WJV7CgCydW=
+86rHC39cvzfDW18CbmJ5xKtMdW4g94MK6YM_smW2pDn0d6QSyZ8W5F0xjf4DG8SJW5sph6r44DT=
+3xW6nXWrT3xKC2_W77XGgB1-5jfYW162xk_72H33HW6RKD6r1bf8WPW22X8Dv8BhshMW383-jN8=
+9r_BYW66Qwvf8lwWmfV4fSjD2vrsyRW5SwR-K820JFCW6Y9fFZ2xkbyTW5vcPzF2qGp3CW5nLm7=
+x8JpFZQW12RrWS6VS256W7bkR7f3tQDjSW59wWql6KYFbGW7knSRx71bFtC3nBD1" target=3D=
+"_blank" rel=3D"noopener noreferrer" data-token-index=3D"1" data-reactroot=
+=3D"" style=3D"mso-line-height-rule:exactly; color:#2250f4; text-decoration=
+:none" data-hs-link-id=3D"0">Netlify's enterprise products</a>.</p></div></=
+div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1621483380329" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff; padding-bottom:40px" =
+bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:40px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1621483380330_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_162148338877715" class=3D"hs_cos_wrapper=
+ hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit;=
+ font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"wid=
+get" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; color:#151a1e; word-break:break-word; text-align:center; padding:10px =
+20px; font-size:0px">
+               =20
+                    <a href=3D"https://communications.netlify.com/e2t/tc/VW=
+WYjl79bWj6N57JfhS2rWf1W5QKV2t4vgMJMN1TFhtQ3q0zJV1-WJV7CgCzHN6yGGG1z6GC2N1_B=
+sQcr6JyXW7Plnz_95RvbLW762Ymz5C-2TgW4HXBv93kwdNwW8F8P4187nr9VW5FMtjp1GDlcWW1=
+mf0Hs6cPFFbW48Twlp1vvgs_W7_yj6J4Dbn_8W20BK9j4mDYGtW91Kl_J61whgkW4Yxw9y3b3_3=
+rW2Hqz903sW1rnN3xNpTDZ8QvkW1d6FQ94dHCWBW3KqDSl9kJqwwW3LBDZY2Z-kZnW8-BGR055Z=
+ylFW4TjLmH6zpnJvW57CW8B1v-BJkN18SwmM430ZN35JG1" target=3D"_blank" style=3D"=
+color:#00a4bd; mso-line-height-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"TechnologyPartners 4" src=3D"https://communicat=
+ions.netlify.com/hs-fs/hubfs/TechnologyPartners%204.png?width=3D1120&amp;up=
+scale=3Dtrue&amp;name=3DTechnologyPartners%204.png" style=3D"outline:none; =
+text-decoration:none; -ms-interpolation-mode:bicubic; border:none; max-widt=
+h:100%; font-size:16px" width=3D"560" align=3D"middle" srcset=3D"https://co=
+mmunications.netlify.com/hs-fs/hubfs/TechnologyPartners%204.png?upscale=3Dt=
+rue&amp;width=3D1120&amp;upscale=3Dtrue&amp;name=3DTechnologyPartners%204.p=
+ng 560w, https://communications.netlify.com/hs-fs/hubfs/TechnologyPartners%=
+204.png?upscale=3Dtrue&amp;width=3D2240&amp;upscale=3Dtrue&amp;name=3DTechn=
+ologyPartners%204.png 1120w" sizes=3D"(max-width: 560px) 100vw, 560px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"builtin_section-2" class=3D"hse-section hse-section-last" styl=
+e=3D"padding-left:10px; padding-right:10px; padding-bottom:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; padding-bottom:20px; padding-top:20px">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation">
+      <tr>
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:20px; padding-top:=
+20px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"builtin_column_2-0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_builtin_module_2_0_1" class=3D"hs_cos_wrapper h=
+s_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; f=
+ont-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widge=
+t" data-hs-cos-type=3D"module">
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+<table role=3D"presentation" class=3D"hse-footer hse-secondary" width=3D"10=
+0%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !importan=
+t; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; fo=
+nt-family:Arial, sans-serif; font-size:12px; line-height:135%; color:#23496=
+d; margin-bottom:0; padding:0">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Helvetica, Arial, sans-se=
+rif; font-size:15px; color:#151a1e; word-break:break-word; text-align:cente=
+r; margin-bottom:0; line-height:135%; padding:10px 20px">
+                <p style=3D"mso-line-height-rule:exactly; font-family:Arial=
+, sans-serif; font-size:12px; font-weight:normal; text-decoration:none; fon=
+t-style:normal; color:#23496d; direction:lrt" dir=3D"lrt">
+                  Netlify, 2343 3rd St. Suite 296, San Francisco, CA 94107
+                </p>
+                <p style=3D"mso-line-height-rule:exactly">
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://communicatio=
+ns.netlify.com/hs/manage-preferences/unsubscribe-all?d=3DVncJJK6FH7k0VHhDPj=
+43TB-zW1V6H733zbV8YW3Fbt5q7-5lkgN1fkvKFk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCg=
+RZ57KLY4W1KVcpz7jDJDWW2-w_4s3YwqBlVSVvkw8Jx9bndKYCRF04&amp;v=3D3&amp;utm_ca=
+mpaign=3DGeneral%20Newsletter&amp;utm_source=3Dhs_email&amp;utm_medium=3Dem=
+ail&amp;utm_content=3D142419618&amp;_hsenc=3Dp2ANqtz-_Ev6rvGN0ijHWzC2JiK7fl=
+uV3VLM62aQ6BJjDIGqBalfwUtUvNmn_leuMRLwV-YoH1hXGsWmu5knSqDzSAJ6AnpOo07w&amp;=
+_hsmi=3D142419618" style=3D"mso-line-height-rule:exactly; font-family:Helve=
+tica,Arial,sans-serif; font-size:12px; color:#2250F4; font-weight:normal; t=
+ext-decoration:none; font-style:normal" data-hs-link-id=3D"0" target=3D"_bl=
+ank">Unsubscribe</a>
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://communicatio=
+ns.netlify.com/hs/manage-preferences/unsubscribe?d=3DVncJJK6FH7k0VHhDPj43TB=
+-zW1V6H733zbV8YW3Fbt5q7-5lkgN1fkvKFk0P5pW8sXMNT5NdrS6W57kpwF78qJDsW7lCgRZ57=
+KLY4W1KVcpz7jDJDWW2-w_4s3YwqBlVSVvkw8Jx9bndKYCRF04&amp;v=3D3&amp;utm_campai=
+gn=3DGeneral%20Newsletter&amp;utm_source=3Dhs_email&amp;utm_medium=3Demail&=
+amp;utm_content=3D142419618&amp;_hsenc=3Dp2ANqtz-_Ev6rvGN0ijHWzC2JiK7fluV3V=
+LM62aQ6BJjDIGqBalfwUtUvNmn_leuMRLwV-YoH1hXGsWmu5knSqDzSAJ6AnpOo07w&amp;_hsm=
+i=3D142419618" style=3D"mso-line-height-rule:exactly; font-family:Helvetica=
+,Arial,sans-serif; font-size:12px; color:#2250F4; font-weight:normal; text-=
+decoration:none; font-style:normal" data-hs-link-id=3D"0" target=3D"_blank"=
+>Manage preferences</a>
+                 =20
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+</div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://communications.netlify.com/e2t/to/VWWYjl79bWj6N57JfhS2r=
+Wf1W5QKV2t4vgMJMW1TFhdX1gs6CW132" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"display:none!important;min-height:1px!important;width:1px!i=
+mportant;border-width:0!important;margin-top:0!important;margin-bottom:0!im=
+portant;margin-right:0!important;margin-left:0!important;padding-top:0!impo=
+rtant;padding-bottom:0!important;padding-right:0!important;padding-left:0!i=
+mportant"></body></html>
+------=_Part_2853414_1817813347.1626889916430--
