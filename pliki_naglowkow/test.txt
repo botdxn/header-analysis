@@ -1,4 +1,4 @@
-Delivered-To: dixone23@gmail.com
+Delivered-To: test_email@test.test
 Received: by 2002:a05:6918:9045:b029:31:c694:5705 with SMTP id g5csp6660015ysf;
         Wed, 21 Jul 2021 10:51:58 -0700 (PDT)
 X-Google-Smtp-Source: ABdhPJxGXx5LxQoptp52sEFZeu4x92e27URperlVEOYnviXU/p3/zn4WRYcJ6xAkxM7hECeIdQm8
@@ -25,19 +25,19 @@ ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc
 ARC-Authentication-Results: i=1; mx.google.com;
        dkim=pass header.i=@bf06x.hubspotemail.net header.s=hs1 header.b=UAyLlDQb;
        dkim=pass header.i=@netlify.com header.s=hs1 header.b=NIQzTFua;
-       spf=pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) smtp.mailfrom="1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net";
+       spf=pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) smtp.mailfrom="1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net";
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=netlify.com
-Return-Path: <1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net>
+Return-Path: <1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net>
 Received: from bid46p4.bf06x.hubspotemail.net (bid46p4.bf06x.hubspotemail.net. [158.247.18.186])
         by mx.google.com with ESMTPS id a18si20823698qko.219.2021.07.21.10.51.58
-        for <dixone23@gmail.com>
+        for <test_email@test.test>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
         Wed, 21 Jul 2021 10:51:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) client-ip=158.247.18.186;
+Received-SPF: pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) client-ip=158.247.18.186;
 Authentication-Results: mx.google.com;
        dkim=pass header.i=@bf06x.hubspotemail.net header.s=hs1 header.b=UAyLlDQb;
        dkim=pass header.i=@netlify.com header.s=hs1 header.b=NIQzTFua;
-       spf=pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) smtp.mailfrom="1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net";
+       spf=pass (google.com: domain of 1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net designates 158.247.18.186 as permitted sender) smtp.mailfrom="1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net";
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=netlify.com
 Received: by 172.16.47.42 with SMTP id ayy69zrozcsinlkolt500ol4kb82z67gh154f5g;
         Wed, 21 Jul 2021 17:51:57 GMT
@@ -62,13 +62,13 @@ DKIM-Signature: v=1; s=hs1; d=netlify.com; i=@netlify.com;
          Ls3Y+QkWOiPHS9yhPnNwpFxVl5Xbbxn77xkINKhIlFyBBV82VJsP3PFArCqfFRp
          NkM0aR1SZgYX8tr+zs9itzx1wKyVI3zcQ2WkQX4isSso+F7X2+mj2FDXXKOZUuo
          7vr72Fv8GKVN0relkwvD6/VU3b8w==; q=dns/txt; t=1626889917;
-Return-Path: <1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-dixone23=gmail.com@bf06x.hubspotemail.net>
+Return-Path: <1axb0jglz732b7sxhl0unq45kcpfxb4z02n6py-test-email=test.test@bf06x.hubspotemail.net>
 X-HS-Cid: 1axe8h1k3lc9oe2aq8twj3lsc9is7rtn6554f6
-List-Unsubscribe: <mailto:1axcx115vdxesvtitzcgmi7y8iq38f6vrme5za-dixone23=gmail.com@bf06x.hubspotemail.net?subject=unsubscribe>
+List-Unsubscribe: <mailto:1axcx115vdxesvtitzcgmi7y8iq38f6vrme5za-test-email=test.test@bf06x.hubspotemail.net?subject=unsubscribe>
 Date: Wed, 21 Jul 2021 10:51:57 -0700
 From: Netlify Team <no-reply@netlify.com>
 Reply-To: no-reply@netlify.com
-To: dixone23@gmail.com
+To: test_email@test.test
 Message-ID: <1626887685683.c9647ac4-3e02-468c-bd3a-33013ce6c79f@bf06x.hubspotemail.net>
 Subject: Browserstack integration, Monorepo support, Astro, Supabase, and more - Netlify July Newsletter
 MIME-Version: 1.0

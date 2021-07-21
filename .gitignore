@@ -3,7 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-./pliki_naglowkow
+*.parsed
+
+.pliki_naglowkow/
 
 # C extensions
 *.so
