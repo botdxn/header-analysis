@@ -1,7 +1,8 @@
 import re
 
+
 class HeaderAnalysis:
-    def __init__(self, path: str, debug: bool):
+    def __init__(self, path: str, debug=False):
         self.path = path
         self.debug = debug
         try:
@@ -10,7 +11,7 @@ class HeaderAnalysis:
                 if self.debug == True: print(f'Loaded \"{path}\"')
         except Exception as e: print(e)
 
-    def get_headers(self, raw: bool, save: bool, output: str):
+    def get_headers(self, return_raw=False, save=False, output=''):
         example_headers_list = ['Delivered-To:', 'ARC-Seal:', 'ARC-Message-Signature:', 'ARC-Authentication-Results:', 'Return-Path:', 'Received-SPF:', 'Authentication-Results:', 'DKIM-Signature:', 'X-HS-Cid:', 'Date:', 'From:', 'To:', 'Message-ID:', 'Subject:', 'Content-Type:']
         example_headers_list = [list_element.lower() for list_element in example_headers_list]
     
@@ -24,7 +25,7 @@ class HeaderAnalysis:
             else:
                 current_row += 1
 
-        if raw == False:
+        if return_raw == False:
             headers_list = []
             for row in headers_block:
                 for list_element in example_headers_list:
@@ -33,14 +34,10 @@ class HeaderAnalysis:
             if save == True:
                 file_name = output + self.path.split('/')[-1] + '.parsed'
                 with open(file_name, 'w') as output_file:
-                    for header_list_elementment in headers_list:
-                        output_file.write(header_list_elementment + '\n')
+                    for header_list_element in headers_list:
+                        output_file.write(header_list_element + '\n')
                 if self.debug == True: print(f'File \"{file_name}\" saved')
             return headers_list
-        elif raw == True:
-            return headers_block 
         
-#test
-test_file = HeaderAnalysis(path='pliki_naglowkow/test.txt', debug=True)
-parsed_headers = test_file.get_headers(raw=False, save=True, output='')
-print(parsed_headers)
+        elif return_raw == True:
+            return headers_block 
