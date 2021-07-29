@@ -1,9 +1,8 @@
 # header-analysis
 ## funkcje podstawowe:
-- input: plik txt/csv
-- wylistowanie wszystkich w tabeli (pandas??)
-- input alternatywny: wiadomość załącznikowa (np. z Outlooka [*.msg])
+- input: txt/csv
+- list all email headers in a table
+- alternative input: file attachment eg. outlook file [*.msg]) and/or connect to Gmail account
 
-- *rozkodowanie wiadomości z pliku?? (czy trzeba mieć klucz szyfrujący albo certyfikat)
-- wykorzystać api virustotal żeby analizować nagłówki/domeny
-- analiza załączników
+- possible to use virustotal's api to analyse headers and domains
+- attachement analysis
